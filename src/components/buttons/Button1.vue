@@ -27,6 +27,7 @@ button {
 
     &:hover {
         background-color: $primaryText;
+        cursor: pointer;
     }
 }
 </style>

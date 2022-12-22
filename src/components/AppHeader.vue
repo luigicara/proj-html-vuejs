@@ -1,14 +1,13 @@
 <script>
+import { store } from '../store';
 import Button1 from './buttons/Button1.vue';
 
 export default {
     data() {
         return {
+            store,
             // element of navbar
             navElements: ["Home", "Pages", "Courses", "Features", "Blog", "Shop"],
-
-            // element of social links
-            socialIcons: ["fa-brands fa-twitter", "fa-brands fa-facebook-f", "fa-brands fa-instagram", "fa-brands fa-linkedin"]
         };
     },
     components: { Button1 }
@@ -16,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <header>
+    <header id="header">
         <div class="container">
             <section class="topbar">
                 <img src="dark-logo.png" alt="logo">
@@ -35,7 +34,7 @@ export default {
 
                 <!-- ul loops trough socialIcons -->
                 <ul class="social">
-                    <li v-for="icon in socialIcons">
+                    <li v-for="icon in store.socialIcons">
                         <a href="#">
                             <font-awesome-icon :icon="icon" />
                         </a>

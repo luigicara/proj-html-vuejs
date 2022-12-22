@@ -34,13 +34,15 @@ export default {
 
 <template>
   <AppHeader />
-  <MainStatistics />
-  <MainAboutMe />
-  <MainBegin />
-  <MainBookStore />
-  <MainSponsor />
-  <MainRealStrories />
-  <MainBlogUpdated />
+  <main>
+    <MainStatistics />
+    <MainAboutMe />
+    <MainBegin />
+    <MainBookStore />
+    <MainSponsor />
+    <MainRealStrories />
+    <MainBlogUpdated />
+  </main>
   <AppFooter />
 </template>
 

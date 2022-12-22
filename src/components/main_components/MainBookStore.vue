@@ -52,8 +52,16 @@ export default {
             <Button1 :msg="'Get Free Ebook'" />
         </div>
 
-        <div class="book">
+        <div class="book" v-for="book in books">
+            <img :src="`product-book-${book.img}-400x400.jpg`" alt="book">
 
+            <div class="name">
+                {{ book.name }}
+            </div>
+
+            <div class="price">
+                {{ book.price.slice(0, 3) }}<span>{{ book.price.slice(3, 5) }}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -63,10 +71,11 @@ export default {
 
 .container {
     display: flex;
+    gap: 2rem;
     margin: 5rem auto;
 
     .info {
-        width: 30%;
+
 
         h2 {
             font-size: 2.5rem;
@@ -90,6 +99,32 @@ export default {
                 color: $secondaryText;
                 font-size: 1rem;
             }
+        }
+    }
+
+    .book {
+        width: 35%;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+
+        .price {
+            color: $secondaryText;
+            font-weight: 700;
+            font-size: 1.5rem;
+
+            span {
+                font-size: 1.2rem;
+            }
+        }
+
+        .name {
+            color: $primaryText;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem;
         }
     }
 }

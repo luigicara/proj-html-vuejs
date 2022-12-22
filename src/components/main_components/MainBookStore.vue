@@ -16,11 +16,19 @@ export default {
                     name: "Real man 4.0 by Maxcoach",
                 }
             ],
+
             features: [
                 "Help you understand yourself better",
                 "Revealing mature tips",
                 "Give the right advice",
                 "Fascinating examples of alpha man"
+            ],
+
+            commandIcons: [
+                'fa-solid fa-magnifying-glass',
+                'fa-solid fa-cart-shopping',
+                'fa-regular fa-heart',
+                'fa-solid fa-signal'
             ]
         };
     },
@@ -53,7 +61,15 @@ export default {
         </div>
 
         <div class="book" v-for="book in books">
-            <img :src="`product-book-${book.img}-400x400.jpg`" alt="book">
+            <div class="book-image">
+                <img :src="`product-book-${book.img}-400x400.jpg`" alt="book">
+
+                <div class="commands">
+                    <div class="icon" v-for="icon in commandIcons">
+                        <font-awesome-icon :icon="icon" />
+                    </div>
+                </div>
+            </div>
 
             <div class="name">
                 {{ book.name }}
@@ -106,9 +122,39 @@ export default {
         width: 35%;
         text-align: center;
 
-        img {
-            max-width: 100%;
+        .book-image {
+            position: relative;
+
+            &:hover .commands {
+                display: block;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .commands {
+                position: absolute;
+                display: none;
+                top: 20%;
+                right: 10%;
+
+                .icon {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    margin-bottom: 0.5rem;
+                    border-radius: 50%;
+                    line-height: 2.5rem;
+                    vertical-align: middle;
+                    text-align: center;
+                    background-color: white;
+                    font-size: 0.8rem;
+                    color: $tertiaryText;
+                    cursor: pointer;
+                }
+            }
         }
+
 
         .price {
             color: $secondaryText;

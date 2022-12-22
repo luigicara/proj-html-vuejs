@@ -1,11 +1,17 @@
 <script>
+import Button1 from './buttons/Button1.vue';
+
 export default {
     data() {
         return {
-            navElements: ['Home', 'Pages', 'Courses', 'Features', 'Blog', 'Shop'],
-            socialIcons: ['fa-brands fa-twitter', 'fa-brands fa-facebook-f', 'fa-brands fa-instagram', 'fa-brands fa-linkedin']
-        }
-    }
+            // element of navbar
+            navElements: ["Home", "Pages", "Courses", "Features", "Blog", "Shop"],
+
+            // element of social links
+            socialIcons: ["fa-brands fa-twitter", "fa-brands fa-facebook-f", "fa-brands fa-instagram", "fa-brands fa-linkedin"]
+        };
+    },
+    components: { Button1 }
 }
 </script>
 
@@ -15,6 +21,7 @@ export default {
             <section class="topbar">
                 <img src="dark-logo.png" alt="logo">
 
+                <!-- navbar loops trough navElements -->
                 <nav>
                     <ul>
                         <li v-for="link in navElements">
@@ -26,6 +33,7 @@ export default {
                     </ul>
                 </nav>
 
+                <!-- ul loops trough socialIcons -->
                 <ul class="social">
                     <li v-for="icon in socialIcons">
                         <a href="#">
@@ -50,7 +58,7 @@ export default {
                         all adds up.
                     </div>
 
-                    <button>Get Started For Free</button>
+                    <Button1 :msg="'Get Started For Free'" />
                 </div>
 
                 <div class="right col">
@@ -110,7 +118,6 @@ header {
     .hero {
         margin-top: 5rem;
         display: flex;
-        // align-items: center;
 
         .col {
             width: 50%;
@@ -126,18 +133,8 @@ header {
             }
 
             .sub-title {
-                color: grey;
+                color: $tertiaryText;
                 line-height: 2;
-            }
-
-            button {
-                margin: 1.5rem 0;
-                padding: 1rem 3.5rem;
-                border: none;
-                border-radius: 0.3rem;
-                color: white;
-                font-weight: 700;
-                background-color: $secondaryText;
             }
         }
 
